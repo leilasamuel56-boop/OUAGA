@@ -1,0 +1,6 @@
+{
+  "name": "Rituels Ouaga 2000",
+  "description": "Site web d'exception, moderne, luxueux et apaisant pour le spa de prestige Rituels Ouaga 2000 à Ouagadougou.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
