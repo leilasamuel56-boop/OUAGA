@@ -93,12 +93,6 @@ export default function App() {
       <div className="bg-gold-dark text-white/90 text-center py-2 px-4 text-[11px] uppercase tracking-widest font-semibold flex items-center justify-center gap-2.5 z-40 relative">
         <Sparkles size={13} className="text-gold-light animate-pulse" />
         <span>RITUELS OUAGA 2000 — ESPACE DE BIEN-ÊTRE DE PRESTIGE</span>
-        <button
-          onClick={() => setCurrentView(currentView === 'guest' ? 'admin' : 'guest')}
-          className="underline hover:text-white transition decoration-white/50 text-[10px] font-bold bg-white/10 px-2.5 py-0.5 rounded ml-2"
-        >
-          {currentView === 'admin' ? 'Retourner au Site' : 'Entrer en Administration'}
-        </button>
       </div>
 
       {/* Luxury Sticky Navbar */}
