@@ -211,10 +211,7 @@ export default function BookingSystem({
   };
 
   return (
-    <section id="reservation" className="py-24 sm:py-32 bg-beige-bg relative overflow-hidden">
-      {/* Decorative blurred rings */}
-      <div className="absolute top-1/2 left-0 w-80 h-80 bg-gold-light/10 rounded-full blur-3xl -ml-20" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-sage/5 rounded-full blur-3xl -mr-20" />
+    <section id="reservation" className="py-24 sm:py-32 bg-beige-bg relative">
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -441,7 +438,7 @@ export default function BookingSystem({
 
             {/* Step 2: Client personal details form */}
             {step === 2 && (
-              <form onSubmit={handleFinalBooking} className="space-y-6 animate-fade-in">
+              <form onSubmit={handleFinalBooking} className="space-y-6 animate-fade-in" id="booking-client-info-form">
                 
                 {/* Selected overview summary card */}
                 <div className="bg-beige-bg rounded-2xl p-6 border border-sage/10 flex flex-wrap gap-6 items-center justify-between">
@@ -472,9 +469,10 @@ export default function BookingSystem({
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                {/* Vertical Stack for Fields with Stable Keys to Prevent Overlapping/Rendering Bugs */}
+                <div className="space-y-6">
                   {/* Nom complet */}
-                  <div>
+                  <div key="field-container-name">
                     <label className="block text-xs uppercase tracking-widest text-gray-550 font-bold mb-2">
                       Nom complet *
                     </label>
@@ -483,6 +481,8 @@ export default function BookingSystem({
                         <User size={16} />
                       </span>
                       <input
+                        key="stable-input-client-name"
+                        id="stable-input-client-name"
                         type="text"
                         required
                         placeholder="Ex: Alassane Sanou"
@@ -494,7 +494,7 @@ export default function BookingSystem({
                   </div>
 
                   {/* Numéro WhatsApp */}
-                  <div>
+                  <div key="field-container-phone">
                     <label className="block text-xs uppercase tracking-widest text-gray-550 font-bold mb-2">
                       Téléphone WhatsApp (avec indicatif) *
                     </label>
@@ -503,6 +503,8 @@ export default function BookingSystem({
                         <Phone size={16} />
                       </span>
                       <input
+                        key="stable-input-client-phone"
+                        id="stable-input-client-phone"
                         type="tel"
                         required
                         placeholder="Ex: +226 72 31 72 72"
@@ -515,25 +517,27 @@ export default function BookingSystem({
                       ✓ Utilisé pour l'envoi instantané de vos rappels d'or.
                     </span>
                   </div>
-                </div>
 
-                {/* Email Address */}
-                <div>
-                  <label className="block text-xs uppercase tracking-widest text-gray-550 font-bold mb-2">
-                    Adresse Email *
-                  </label>
-                  <div className="relative">
-                    <span className="absolute left-4 top-3.5 text-gray-400">
-                      <Mail size={16} />
-                    </span>
-                    <input
-                      type="email"
-                      required
-                      placeholder="Ex: alassane@gmail.com"
-                      value={clientEmail}
-                      onChange={(e) => setClientEmail(e.target.value)}
-                      className="w-full bg-beige-bg border border-sage/20 rounded-xl pl-11 pr-4 py-3 text-sm font-sans text-gray-800 focus:outline-none focus:border-gold-text focus:ring-1 focus:ring-gold-text"
-                    />
+                  {/* Email Address */}
+                  <div key="field-container-email">
+                    <label className="block text-xs uppercase tracking-widest text-gray-550 font-bold mb-2">
+                      Adresse Email *
+                    </label>
+                    <div className="relative">
+                      <span className="absolute left-4 top-3.5 text-gray-400">
+                        <Mail size={16} />
+                      </span>
+                      <input
+                        key="stable-input-client-email"
+                        id="stable-input-client-email"
+                        type="email"
+                        required
+                        placeholder="Ex: alassane@gmail.com"
+                        value={clientEmail}
+                        onChange={(e) => setClientEmail(e.target.value)}
+                        className="w-full bg-beige-bg border border-sage/20 rounded-xl pl-11 pr-4 py-3 text-sm font-sans text-gray-800 focus:outline-none focus:border-gold-text focus:ring-1 focus:ring-gold-text"
+                      />
+                    </div>
                   </div>
                 </div>
 
