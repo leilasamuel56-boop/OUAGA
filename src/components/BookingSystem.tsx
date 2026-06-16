@@ -192,11 +192,6 @@ export default function BookingSystem({
     } catch (e) {
       // ignore
     }
-    try {
-      window.location.href = url;
-    } catch (err) {
-      // ignore
-    }
 
     setStep(3);
     onBookingComplete();
